@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UD2 - Les metes de la sostenibilitat: ODS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a9b8e 0%, #16a085 100%);
+      color: white;
+      padding: 2rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-section img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+    }
+
+    .logo-section h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #a8e6df;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 20px;
+    }
+
+    .intro-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-left: 5px solid #1a9b8e;
+    }
+
+    .intro-section h2 {
+      color: #1a9b8e;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+
+    .intro-section h3 {
+      color: #1a9b8e;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-section p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .ods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .ods-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .ods-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .ods-card-header {
+      background: linear-gradient(135deg, #1a9b8e 0%, #16a085 100%);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .ods-card-header h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .ods-card-content {
+      padding: 1.5rem;
+    }
+
+    .ods-card-content p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .section-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-left: 5px solid #1a9b8e;
+    }
+
+    .section-content h3 {
+      color: #1a9b8e;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #1a9b8e;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-content h4 {
+      color: #1a9b8e;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .section-content p {
+      margin-bottom: 1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .highlight-box {
+      background: #e8f7f5;
+      border-left: 4px solid #1a9b8e;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 5px;
+    }
+
+    .highlight-box strong {
+      color: #1a9b8e;
+    }
+
+    .list-items {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    .list-items li {
+      margin-bottom: 0.8rem;
+      color: #555;
+    }
+
+    .dimensions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .dimension-box {
+      background: linear-gradient(135deg, #e8f7f5 0%, #d5f0ed 100%);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-top: 4px solid #1a9b8e;
+    }
+
+    .dimension-box h4 {
+      color: #1a9b8e;
+      margin-bottom: 0.8rem;
+    }
+
+    .eu-initiatives {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+      border-left: 4px solid #1a9b8e;
+    }
+
+    .eu-initiatives h4 {
+      color: #1a9b8e;
+      margin-bottom: 1rem;
+    }
+
+    .initiatives-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+
+    .initiative-list {
+      background: #f0faf8;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #1a9b8e;
+    }
+
+    .initiative-list h5 {
+      color: #1a9b8e;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .initiative-list ul {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .initiative-list li {
+      padding: 0.5rem 0;
+      color: #555;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .initiative-list li:before {
+      content: "✓";
+      color: #1a9b8e;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    footer {
+      background: #1a9b8e;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .resource-links {
+      background: #e8f7f5;
+      border-left: 4px solid #1a9b8e;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 5px;
+    }
+
+    .resource-links a {
+      color: #1a9b8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .resource-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .initiatives-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .ods-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #1a9b8e;">IES</div>
+        <h1>Apunts d'Informàtica</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inici">Inici</a></li>
+          <li><a href="#ud1">UD1</a></li>
+          <li><a href="#ud2" class="active">UD2</a></li>
+          <li><a href="#ud3">UD3</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-section">
+      <h2>Unitat Didàctica 2</h2>
+      <h3>Les metes de la sostenibilitat: ODS</h3>
+      <p>En aquesta unitat explorarem els Objectius de Desenvolupament Sostenible (ODS), creats per l'Organització de les Nacions Unides el 2015 com a part de l'Agenda 2030.</p>
+      <p>Descobrirà com aquests 17 objectius abordan els reptes més importants de la humanitat: canvi climàtic, pobresa, desigualtat i sostenibilitat ambiental.</p>
+    </section>
+
+    <section class="section-content">
+      <h3>1. Els Objectius de Desenvolupament Sostenible (ODS)</h3>
+      
+      <h4>Introducció a l'ONU i els ODS</h4>
+      <p>Des que va ser creat el 1945, l'Organització de les Nacions Unides (ONU) coordina els esforços de la humanitat per la pau i la seguretat internacionals. Avui, l'amenaça més gran que afrontem és el canvi climàtic i els reptes mediambientals associats.</p>
+      <p>El 2015, l'ONU va llançar l'Agenda 2030 i els Objectius de Desenvolupament Sostenible (ODS) per coordinar els esforços de tots els països a favor del desenvolupament sostenible.</p>
+
+      <div class="highlight-box">
+        <strong>Característiques dels ODS:</strong>
+        <ul class="list-items">
+          <li>Són 17 objectius que, en conjunt, s'ocupen de les tres dimensions de sostenibilitat: mediambiental, econòmica i social</li>
+          <li>Cada ODS té assignades diverses metes concretes i indicadors específics</li>
+          <li>Són objectius de compliment obligat per les administracions públiques de tots els països</li>
+          <li>L'ONU convida totes les persones i empreses a sumar-s'hi</li>
+        </ul>
+      </div>
+
+      <h4>Les tres dimensions de la sostenibilitat</h4>
+      <div class="dimensions-grid">
+        <div class="dimension-box">
+          <h4>Dimensió Ambiental</h4>
+          <p>Protecció del clima, ecosistemes, recursos naturals i biodiversitat</p>
+        </div>
+        <div class="dimension-box">
+          <h4>Dimensió Econòmica</h4>
+          <p>Desenvolupament econòmic responsable i creació de llocs de treball sostenibles</p>
+        </div>
+        <div class="dimension-box">
+          <h4>Dimensió Social</h4>
+          <p>Reducció de la pobresa, educació, sanitat i benestar de les persones</p>
+        </div>
+      </div>
+
+      <h4>ODS, metes i indicadors</h4>
+      <p>Cada ODS té assignades una sèrie de metes que s'han d'assolir el 2030. Per a cada meta se seleccionen indicadors d'acompliment concrets que s'estudien per mesurar la nostra distància amb aquests objectius. Amb aquests indicadors, es pot determinar el grau de compliment dels ODS d'un país.</p>
+
+      <div class="resource-links">
+        <strong>📚 Recursos:</strong><br>
+        Pàgina oficial de l'ONU sobre ODS: <a href="https://www.un.org/sustainabledevelopment/" target="_blank">bit.ly/17_ods</a><br>
+        Resolució 71/313 - ODS, metes i indicadors: <a href="#" target="_blank">bit.ly/metas_ods</a>
+      </div>
+    </section>
+
+    <section class="section-content">
+      <h3>2. Els ODS i tu</h3>
+      
+      <p>Els ODS impliquen tant els Estats com les empreses i les persones. Com a ciutadans sensibilitzats amb la sostenibilitat, podem actuar a diversos nivells.</p>
+
+      <h4>2.1 Els ODS a nivell personal: consum responsable</h4>
+      <p>Com a consumidors, podem fer choices més sostenibles en la nostra vida diària:</p>
+      <ul class="list-items">
+        <li>Reduir el consum de plàstics i reutilitzar productes</li>
+        <li>Comprar productes locals i de temporada</li>
+        <li>Escolir empreses amb certificacions de sostenibilitat</li>
+        <li>Reduir el nostre consum energètic a casa</li>
+        <li>Participar en iniciatives comunitàries</li>
+      </ul>
+
+      <h4>2.2 Els ODS a l'àmbit professional</h4>
+      <p>En els nostres llocs de treball, podem realitzar accions individuals per millorar la sostenibilitat, similar a com fem en el consum responsable. Això inclou propostes a la direcció per reduir l'impacte ambiental de l'empresa i promoure pràctiques més sostenibles.</p>
+    </section>
+
+    <section class="section-content">
+      <h3>3. Els ODS en l'empresa</h3>
+      
+      <h4>Fixar metes de desenvolupament sostenible</h4>
+      <p>La millora de la sostenibilitat d'una empresa implica prendre decisions a nivell de direcció, que poden anar des de petits canvis en la gestió quotidiana fins a replantejar-se el propi model de negoci.</p>
+      <p>Els ODS i les metes associades actuen com a guia per a les empreses. Cada rama d'activitat se centra especialment en uns pocs ODS segons la seva natura i impacte.</p>
+
+      <h4>3.2 La Unió Europea i els ODS</h4>
+      <p>La Unió Europea duu a terme mesures de gran importància en matèria de sostenibilitat. Les mesures implantades són conseqüència de l'adhesió dels seus països membres a l'acord de l'ONU sobre els ODS, i a altres acords internacionals:</p>
+
+      <div class="highlight-box">
+        <strong>Acords Internacionals:</strong>
+        <ul class="list-items">
+          <li><strong>Acord de París (2015):</strong> Busca que l'escalfament global no sobrepassi els 2°C</li>
+          <li><strong>Protocol de Kyoto (1997):</strong> Permet crear mecanismes de comerç de drets d'emissió de gasos amb efecte d'hivernacle</li>
+        </ul>
+      </div>
+
+      <h4>Iniciatives de la UE que afecten a les empreses</h4>
+      <div class="eu-initiatives">
+        <ul class="list-items">
+          <li>Pacte Verd Europeu</li>
+          <li>Nova Estratègia Industrial per a Europa</li>
+          <li>Estratègia de Mobilitat Sostenible</li>
+          <li>Règim de comerç de drets d'emissió de la Unió Europea</li>
+        </ul>
+      </div>
+
+      <h4>Reptes i oportunitats per a les empreses</h4>
+      <div class="initiatives-columns">
+        <div class="initiative-list">
+          <h5>⚠️ Reptes i riscos</h5>
+          <ul>
+            <li>Normes mediambientals cada vegada més estrictes</li>
+            <li>Augment de riscos de sancions</li>
+            <li>Augment dels impostos a activitats contaminants</li>
+            <li>Necessitat de fer grans inversions</li>
+          </ul>
+        </div>
+        <div class="initiative-list">
+          <h5>✨ Oportunitats</h5>
+          <ul>
+            <li>Ajudes per millorar la resiliència</li>
+            <li>Nous llocs de treball relacionats</li>
+            <li>Finançament a projectes sostenibles</li>
+            <li>Millora de la reputació de marca</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-content">
+      <h3>4. ODS i SDG Compass</h3>
+      
+      <h4>Què és el Pacte Mundial de l'ONU?</h4>
+      <p>El 1999 es va crear el Pacte Mundial de les Nacions Unides per promoure que les empreses i organitzacions planifiquin i realitzin les seves activitats d'acord amb principis de drets humans, laborals i mediambientals.</p>
+
+      <h4>La metodologia SDG Compass</h4>
+      <p>Per facilitar la implantació dels ODS a l'empresa, el Pacte Mundial va crear la metodologia <strong>SDG Compass</strong> (Brúixola dels ODS). Aquesta metodologia pretén ajudar les empreses a:</p>
+      <ul class="list-items">
+        <li>Alinear millor les seves estratègies amb els ODS</li>
+        <li>Mesurar la seva contribució a aconseguir-los</li>
+        <li>Posar la sostenibilitat al centre de la seva estratègia</li>
+        <li>Oferir les ferraments i els coneixements necessaris</li>
+      </ul>
+
+      <div class="resource-links">
+        <strong>📖 Guia SDG Compass:</strong><br>
+        <a href="https://www.pactomundial.org/wp-content/uploads/2016/10/SDG_Compass_Spanish-one-pager-view.pdf" target="_blank">Descarrega la guia completa en PDF</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2025 — Anna Brines - IES María Enríquez (Gandia)</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Continguts adaptats de la documentació oficial de l'ONU</p>
+  </footer>
+</body>
